@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* FoodNest Premium Semantic Palette */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+:root {
+  /* Modern Organic Theme - Dark Forest & Vibrant Food Colors */
+  --background: #fcfcfc;
+  --foreground: #1a1c1e;
+
+  --primary: #2d5a27;
+  /* Deep Forest Green */
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f1ea;
+  /* Cream/Oat */
+  --secondary-foreground: #2d5a27;
+
+  --accent: #e85d04;
+  /* Zest Orange */
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --card: rgba(255, 255, 255, 0.7);
+  --card-foreground: #1a1c1e;
+
+  --popover: #ffffff;
+  --popover-foreground: #1a1c1e;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2d5a27;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --primary: #4ade80;
+  /* Brighter Green for Dark Mode */
+  --primary-foreground: #022c22;
+
+  --secondary: #1f2937;
+  --secondary-foreground: #ededed;
+
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fecaca;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+
+  --card: rgba(10, 10, 10, 0.7);
+  --card-foreground: #ededed;
+
+  --popover: #111111;
+  --popover-foreground: #ededed;
+
+  --border: #334155;
+  --input: #334155;
+  --ring: #4ade80;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-image: radial-gradient(at 0% 0%, rgba(45, 90, 39, 0.03) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(232, 93, 4, 0.03) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/60 backdrop-blur-xl border border-white/20 shadow-xl;
+  }
+
+  .glass-button {
+    @apply bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 transition-all duration-300;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-gradient {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
