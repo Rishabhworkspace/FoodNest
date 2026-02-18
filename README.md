@@ -6,11 +6,11 @@ FoodNest helps users find their next meal based on **vibes**, not just star rati
 
 ## Features
 
-- **🎯 Vibe-Based Discovery**: preset mood filters (Chill, Work, Date Night) that instantly map to curated lists.
-- **✨ Premium UI/UX**: Extensive use of glassmorphism, staggered animations, and micro-interactions for a tactile feel.
-- **🔍 Smart Filtering**: Instant client-side search and filtering by cuisine, price, and dietary preference.
-- **⚡ Zero-Latency Transitions**: Built on Next.js 15 with Framer Motion for seamless page navigation.
-- **📱 Fully Responsive**: Optimized for mobile, tablet, and desktop with a mobile-first approach.
+- ** Vibe-Based Discovery**: preset mood filters (Chill, Work, Date Night) that instantly map to curated lists.
+- ** Premium UI/UX**: Extensive use of glassmorphism, staggered animations, and micro-interactions for a tactile feel.
+- ** Smart Filtering**: Instant client-side search and filtering by cuisine, price, and dietary preference.
+- ** Zero-Latency Transitions**: Built on Next.js 15 with Framer Motion for seamless page navigation.
+- ** Fully Responsive**: Optimized for mobile, tablet, and desktop with a mobile-first approach.
 
 ## Tech Stack
 

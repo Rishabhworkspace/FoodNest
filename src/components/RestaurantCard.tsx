@@ -40,9 +40,9 @@ export default function RestaurantCard({
             className="group h-full"
         >
             <Link href={`/restaurant/${restaurant.id}`} className="block h-full">
-                <div className="relative h-full bg-white rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 ease-out">
-                    {/* Image Container */}
-                    <div className="relative h-56 overflow-hidden">
+                <div className="relative h-full bg-white rounded-[2rem] overflow-hidden border border-border/50 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 ease-out flex flex-col">
+                    {/* Image Container - Taller and more immersive */}
+                    <div className="relative h-64 overflow-hidden">
                         <motion.img
                             src={restaurant.image}
                             alt={restaurant.name}
@@ -53,59 +53,71 @@ export default function RestaurantCard({
                         />
 
                         {/* Gradient Overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
 
                         {/* Top Badges */}
-                        <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                            <div className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-foreground shadow-sm">
-                                {restaurant.priceRange}
+                        <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
+                            <div className="flex gap-2">
+                                <div className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-white/20 shadow-sm">
+                                    {restaurant.cuisine[0]}
+                                </div>
                             </div>
                             <div className={cn(
-                                "px-3 py-1 rounded-full text-xs font-bold backdrop-blur-md shadow-sm",
-                                restaurant.isOpen ? "bg-primary/90 text-white" : "bg-destructive/90 text-white"
+                                "px-3 py-1 rounded-full text-xs font-bold backdrop-blur-md shadow-sm flex items-center gap-1",
+                                restaurant.isOpen ? "bg-emerald-500/90 text-white" : "bg-rose-500/90 text-white"
                             )}>
-                                {restaurant.isOpen ? 'Open Now' : 'Closed'}
+                                <Clock className="w-3 h-3" />
+                                {restaurant.isOpen ? 'Open' : 'Closed'}
                             </div>
                         </div>
 
-                        {/* Bottom Info on Image */}
-                        <div className="absolute bottom-4 left-4 text-white">
-                            <div className="flex items-center gap-1.5 text-xs font-medium bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full w-fit mb-2">
-                                <MapPin className="w-3 h-3 text-accent" />
-                                <span>{restaurant.distance}</span>
+                        {/* Floating Rating Badge */}
+                        <div className="absolute bottom-4 right-4 z-10">
+                            <div className="flex items-center gap-1 bg-white px-2.5 py-1.5 rounded-xl shadow-lg">
+                                <Star className="w-3.5 h-3.5 text-orange-500 fill-orange-500" />
+                                <span className="text-sm font-bold text-foreground">{restaurant.rating}</span>
+                                <span className="text-[10px] text-muted-foreground font-medium">({restaurant.reviewCount})</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-5 flex flex-col h-[calc(100%-14rem)]">
-                        <div className="flex justify-between items-start gap-2 mb-3">
-                            <h3 className="font-heading font-bold text-xl text-foreground leading-tight group-hover:text-primary transition-colors">
-                                {restaurant.name}
-                            </h3>
-                            <div className="flex items-center gap-1 bg-secondary px-2 py-1 rounded-lg shrink-0">
-                                <Star className="w-3.5 h-3.5 text-orange-500 fill-orange-500" />
-                                <span className="text-sm font-bold text-foreground">{restaurant.rating}</span>
+                    <div className="p-5 flex flex-col flex-1 relative">
+                        {/* Price & Distance Row */}
+                        <div className="flex items-center justify-between mb-2 text-xs font-medium text-muted-foreground">
+                            <div className="flex items-center gap-3">
+                                <span className="text-primary bg-primary/5 px-2 py-0.5 rounded-md border border-primary/10">{restaurant.priceRange}</span>
+                                <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {restaurant.distance}</span>
                             </div>
+                            <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {restaurant.distanceMinutes} min</span>
                         </div>
 
-                        <div className="flex flex-wrap gap-2 mb-4">
-                            {restaurant.cuisine.slice(0, 3).map((c) => (
-                                <span key={c} className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground font-medium">
-                                    {c}
-                                </span>
-                            ))}
-                        </div>
+                        <h3 className="font-heading font-bold text-xl text-foreground leading-tight mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                            {restaurant.name}
+                        </h3>
+
+                        <p className="text-muted-foreground text-sm line-clamp-2 mb-4 flex-1">
+                            {restaurant.description}
+                        </p>
 
                         <div className="mt-auto pt-4 border-t border-dashed border-border flex items-center gap-3 overflow-hidden">
-                            {restaurant.tags.slice(0, 3).map((tag) => (
-                                <div key={tag} className="flex items-center gap-1.5 text-xs text-muted-foreground whitespace-nowrap">
+                            {restaurant.tags.slice(0, 2).map((tag) => (
+                                <div key={tag} className="flex items-center gap-1.5 text-xs text-muted-foreground whitespace-nowrap bg-secondary/50 px-2 py-1 rounded-lg">
                                     <span className="text-primary/70">{tagIcons[tag]}</span>
                                     <span className="capitalize">{tag.replace(/-/g, ' ')}</span>
                                 </div>
                             ))}
+                            {restaurant.tags.length > 2 && (
+                                <span className="text-xs text-muted-foreground">+{restaurant.tags.length - 2} more</span>
+                            )}
                         </div>
                     </div>
+
+                    {/* Hover Glow Effect */}
+                    <div className={cn(
+                        "absolute inset-0 border-2 border-primary/0 rounded-[2rem] pointer-events-none transition-all duration-500",
+                        isHovered && "border-primary/10"
+                    )} />
                 </div>
             </Link>
         </motion.div>

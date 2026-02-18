@@ -25,6 +25,7 @@ export interface Restaurant {
   menu: MenuItem[];
   reviews: Review[];
   openingHours: string;
+  city: string;
 }
 
 export interface MenuItem {
@@ -66,6 +67,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Study', 'Date', 'Work'],
     peakHours: '4 PM - 7 PM',
     description: 'A cozy cafe with great coffee, free WiFi, and a peaceful ambience perfect for studying or working. Known for their artisanal cold brews and all-day breakfast menu.',
+    city: 'Bangalore',
     openingHours: '8:00 AM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=400&fit=crop',
@@ -107,8 +109,9 @@ export const restaurants: Restaurant[] = [
     bestDish: 'Butter Chicken & Garlic Naan',
     goodFor: ['Family Dinner', 'Group', 'Celebration'],
     peakHours: '7 PM - 10 PM',
-    description: 'Authentic North Indian cuisine with rich flavors and generous portions. A family favorite for weekend dinners and celebrations.',
-    openingHours: '11:00 AM - 11:00 PM',
+    description: 'Authentic North Indian flavors with a modern twist. The biryanis and kebabs are legendary.',
+    city: 'Bangalore',
+    openingHours: '12:00 PM - 11:30 PM',
     photos: [
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop',
       'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop',
@@ -148,8 +151,9 @@ export const restaurants: Restaurant[] = [
     bestDish: 'Quinoa Buddha Bowl',
     goodFor: ['Date', 'Health Conscious', 'Brunch'],
     peakHours: '12 PM - 2 PM',
-    description: 'A premium plant-based dining experience featuring organic, locally sourced ingredients. Perfect for health-conscious diners looking for creative vegan cuisine.',
-    openingHours: '9:00 AM - 10:00 PM',
+    description: 'For the love of books and coffee. A quiet sanctuary for readers and writers.',
+    city: 'Bangalore',
+    openingHours: '10:00 AM - 9:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop',
       'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop',
@@ -189,7 +193,8 @@ export const restaurants: Restaurant[] = [
     bestDish: 'Masala Dosa & Filter Coffee',
     goodFor: ['Quick Lunch', 'Student Budget', 'Breakfast'],
     peakHours: '7 AM - 10 AM',
-    description: 'Iconic South Indian joint serving crispy dosas and authentic filter coffee for over 30 years. The go-to spot for students looking for affordable, delicious meals.',
+    description: 'Crispy dosas, fluffy idlis, and filter coffee that wakes up your soul. A legendary breakfast spot.',
+    city: 'Bangalore',
     openingHours: '6:30 AM - 9:30 PM',
     photos: [
       'https://images.unsplash.com/photo-1630383249896-424e482df921?w=600&h=400&fit=crop',
@@ -229,8 +234,9 @@ export const restaurants: Restaurant[] = [
     bestDish: 'Truffle Pasta & Cocktails',
     goodFor: ['Date Night', 'Celebration', 'Drinks'],
     peakHours: '8 PM - 12 AM',
-    description: 'Stunning rooftop dining with panoramic city views, craft cocktails, and live music on weekends. The perfect spot for a memorable date night or celebration.',
-    openingHours: '5:00 PM - 1:00 AM',
+    description: 'Stunning rooftop views paired with exquisite cocktails and global cuisine. Perfect for a romantic evening.',
+    city: 'Bangalore',
+    openingHours: '4:00 PM - 1:00 AM',
     photos: [
       'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&h=400&fit=crop',
       'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&h=400&fit=crop',
@@ -270,6 +276,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Quick Lunch', 'Late Night', 'Student Budget'],
     peakHours: '1 PM - 3 PM, 8 PM - 11 PM',
     description: 'Quick and affordable Indo-Chinese food perfect for students. Large portions, bold flavors, and open till midnight for those late-night cravings.',
+    city: 'Bangalore',
     openingHours: '11:00 AM - 12:00 AM',
     photos: [
       'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop',
@@ -309,8 +316,9 @@ export const restaurants: Restaurant[] = [
     bestDish: 'Wood-fired Margherita & Tiramisu',
     goodFor: ['Group', 'Family', 'Hangout'],
     peakHours: '7 PM - 9 PM',
-    description: 'Authentic Italian pizzeria with wood-fired oven. Handmade dough, imported cheese, and a cozy brick-wall ambience that transports you to Naples.',
-    openingHours: '11:00 AM - 11:00 PM',
+    description: 'A slice of Italy in the heart of the city. Wood-fired pizzas, handmade pasta, and a fine selection of wines.',
+    city: 'Bangalore',
+    openingHours: '12:30 PM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop',
       'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&h=400&fit=crop',
@@ -350,6 +358,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Study', 'Hangout', 'Quick Bite'],
     peakHours: '4 PM - 8 PM',
     description: 'The ultimate student hangout with the best chai in town. Free WiFi, board games, and a relaxed vibe. Your pocket-friendly study companion.',
+    city: 'Bangalore',
     openingHours: '7:00 AM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
@@ -390,6 +399,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Date Night', 'Special Occasion', 'Fine Dining'],
     peakHours: '7 PM - 10 PM',
     description: 'Premium Japanese dining with fresh sushi, authentic ramen, and an elegant minimalist setting. Perfect for a special date night or celebration.',
+    city: 'Bangalore',
     openingHours: '12:00 PM - 10:30 PM',
     photos: [
       'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&h=400&fit=crop',
@@ -429,6 +439,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Family Dinner', 'Group', 'Weekend Treat'],
     peakHours: '12 PM - 2 PM, 7 PM - 10 PM',
     description: 'Legendary biryani joint serving authentic Hyderabadi dum biryani for over 20 years. The secret spice blend and slow-cooked meat make every plate unforgettable.',
+    city: 'Bangalore',
     openingHours: '11:00 AM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=400&fit=crop',
@@ -469,6 +480,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Date', 'Dessert', 'Birthday'],
     peakHours: '3 PM - 7 PM',
     description: 'Artisan bakery with Instagram-worthy cakes, freshly baked croissants, and custom birthday cakes. Every dessert is a work of art.',
+    city: 'Bangalore',
     openingHours: '8:00 AM - 10:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&h=400&fit=crop',
@@ -509,6 +521,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Quick Bite', 'Hangout', 'Street Food Tour'],
     peakHours: '5 PM - 9 PM',
     description: 'The most famous chaat stall on Food Street. Known for the tangiest pani puri and the cheesiest pav bhaji in town. An experience, not just food!',
+    city: 'Bangalore',
     openingHours: '4:00 PM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=400&fit=crop',
@@ -548,6 +561,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Family Dinner', 'Business Lunch', 'Celebration'],
     peakHours: '8 PM - 10 PM',
     description: 'Experience authentic Cantonese and Sichuan cuisine in an elegant setting. Famous for their Peking Duck and handcrafted dim sums.',
+    city: 'Bangalore',
     openingHours: '12:00 PM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop',
@@ -587,6 +601,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Hangout', 'Drinks', 'Dinner'],
     peakHours: '7 PM - 11 PM',
     description: 'Vibrant Mexican cantina serving street-style tacos, massive burritos, and the best margaritas in town. Great vibes and music!',
+    city: 'Bangalore',
     openingHours: '12:00 PM - 12:00 AM',
     photos: [
       'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=400&fit=crop',
@@ -626,6 +641,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Date Night', 'Healthy Dinner'],
     peakHours: '8 PM - 10 PM',
     description: 'A taste of Santorini in Bangalore. Fresh ingredients, olive oil-rich dishes, and a serene white-and-blue decor perfect for a romantic evening.',
+    city: 'Bangalore',
     openingHours: '12:00 PM - 11:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1544124499-58912cbddad9?w=600&h=400&fit=crop',
@@ -665,6 +681,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Dessert Cravings', 'Late Night', 'Date'],
     peakHours: '9 PM - 11 PM',
     description: 'A paradise for dessert lovers. From artisanal chocolates to towering sundaes and delicate French pastries.',
+    city: 'Bangalore',
     openingHours: '11:00 AM - 1:00 AM',
     photos: [
       'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop',
@@ -704,6 +721,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Late Night', 'Post-Party'],
     peakHours: '12 AM - 3 AM',
     description: 'Classic American-style diner open 24/7. Famous for greasy burgers, milkshakes, and all-day breakfast.',
+    city: 'Bangalore',
     openingHours: '24 Hours',
     photos: [
       'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&h=400&fit=crop',
@@ -743,6 +761,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Quiet Dinner', 'Date'],
     peakHours: '7 PM - 9 PM',
     description: 'A peaceful oasis in the city serving pan-Asian delicacies. Lush greenery, koi ponds, and soothing music make for a relaxing dining experience.',
+    city: 'Bangalore',
     openingHours: '12:00 PM - 10:30 PM',
     photos: [
       'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop',
@@ -782,6 +801,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Boys Night', 'Match Screening'],
     peakHours: '8 PM - 11 PM',
     description: 'Gourmet burgers and craft beers. The perfect spot to catch a match with friends or enjoy a hearty meal.',
+    city: 'Bangalore',
     openingHours: '11:00 AM - 11:30 PM',
     photos: [
       'https://images.unsplash.com/photo-1512485694743-9c9538b4e6e0?w=600&h=400&fit=crop',
@@ -821,6 +841,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Family Lunch', 'Spicy Food Lovers'],
     peakHours: '1 PM - 3 PM',
     description: 'Traditional Chettinad cuisine served on banana leaves. Known for its fiery curries and authentic flavors from Tamil Nadu.',
+    city: 'Bangalore',
     openingHours: '11:00 AM - 10:30 PM',
     photos: [
       'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&h=400&fit=crop',
@@ -860,6 +881,7 @@ export const restaurants: Restaurant[] = [
     goodFor: ['Post-Workout', 'Healthy Lunch'],
     peakHours: '12 PM - 2 PM',
     description: 'Farm-to-table salad bar where you can customize your own bowl. Fresh, organic, and guilt-free.',
+    city: 'Bangalore',
     openingHours: '10:00 AM - 9:00 PM',
     photos: [
       'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop',
@@ -876,20 +898,77 @@ export const restaurants: Restaurant[] = [
       { author: 'Gym Rat', rating: 5, text: 'Perfect post-gym meal.', date: '4 days ago' },
     ],
   },
+  {
+    id: 'mumbai-masala',
+    name: 'Mumbai Masala',
+    image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&h=400&fit=crop',
+    rating: 4.8,
+    reviewCount: 1250,
+    cuisine: ['Street Food', 'North Indian'],
+    priceRange: '₹₹',
+    distance: '1.2 km',
+    distanceMinutes: 10,
+    lat: 19.0760,
+    lng: 72.8777,
+    isOpen: true,
+    isVeg: true,
+    address: 'Dadart West, Mumbai',
+    phone: '+91 98765 43231',
+    tags: ['street-food', 'spicy'],
+    dietary: ['veg-only'],
+    experience: ['quick-bite'],
+    bestDish: 'Pav Bhaji & Vada Pav',
+    goodFor: ['Quick Bite'],
+    peakHours: '5 PM - 8 PM',
+    description: 'Iconic Mumbai street food served in a hygienic setting. Famous for spicy Pav Bhaji and buttery Vada Pav.',
+    city: 'Mumbai',
+    openingHours: '9:00 AM - 11:00 PM',
+    photos: [
+      'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&h=400&fit=crop'
+    ],
+    menu: [],
+    reviews: []
+  },
+  {
+    id: 'delhi-darbar',
+    name: 'Delhi Darbar',
+    image: 'https://images.unsplash.com/photo-1585937421612-70a008356f36?w=600&h=400&fit=crop',
+    rating: 4.7,
+    reviewCount: 980,
+    cuisine: ['Mughlai', 'North Indian'],
+    priceRange: '₹₹₹',
+    distance: '3.5 km',
+    distanceMinutes: 25,
+    lat: 28.6139,
+    lng: 77.2090,
+    isOpen: true,
+    isVeg: false,
+    address: 'Connaught Place, Delhi',
+    phone: '+91 98765 43232',
+    tags: ['fine-dining', 'history'],
+    dietary: ['halal'],
+    experience: ['fine-dining'],
+    bestDish: 'Butter Chicken & Naan',
+    goodFor: ['Family Dinner'],
+    peakHours: '8 PM - 10 PM',
+    description: 'Legendary Mughlai cuisine in a royal setting. Serving the capital since 1950.',
+    city: 'Delhi',
+    openingHours: '12:00 PM - 11:00 PM',
+    photos: [
+      'https://images.unsplash.com/photo-1585937421612-70a008356f36?w=600&h=400&fit=crop'
+    ],
+    menu: [],
+    reviews: []
+  },
 ];
 
 // Quick filter presets
 export const quickFilters = [
   { id: 'veg-only', label: 'Veg Only', icon: 'leaf' },
-  { id: 'study-cafes', label: 'Study Cafes', icon: 'book' },
+  { id: 'top-rated', label: 'Top Rated', icon: 'star' },
+  { id: 'open-now', label: 'Open Now', icon: 'clock' },
   { id: 'budget-eats', label: 'Budget Eats', icon: 'wallet' },
-  { id: 'romantic-dinner', label: 'Romantic', icon: 'heart' },
-  { id: 'italian', label: 'Italian', icon: 'pizza' },
-  { id: 'mexican', label: 'Mexican', icon: 'fire' },
-  { id: 'late-night', label: 'Late Night', icon: 'moon' },
-  { id: 'rooftop', label: 'Rooftop', icon: 'sun' },
-  { id: 'bakery', label: 'Bakery', icon: 'cake' },
-  { id: 'healthy', label: 'Healthy', icon: 'leaf' },
+  { id: 'premium', label: 'Premium', icon: 'gem' },
 ];
 
 // Mood discovery options

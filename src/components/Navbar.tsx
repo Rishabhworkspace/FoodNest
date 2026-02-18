@@ -17,10 +17,14 @@ import { cn } from '@/lib/utils';
 
 const locations = ['Bangalore', 'Mumbai', 'Delhi', 'Hyderabad', 'Pune'];
 
-export default function Navbar() {
+interface NavbarProps {
+    selectedLocation: string;
+    setSelectedLocation: (location: string) => void;
+}
+
+export default function Navbar({ selectedLocation, setSelectedLocation }: NavbarProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLocationOpen, setIsLocationOpen] = useState(false);
-    const [selectedLocation, setSelectedLocation] = useState(locations[0]);
     const [searchQuery, setSearchQuery] = useState('');
     const [scrolled, setScrolled] = useState(false);
     const { scrollY } = useScroll();

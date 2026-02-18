@@ -64,16 +64,20 @@ const itemVariants = {
 };
 
 export default function HomePage() {
+  const [location, setLocation] = useState('Bangalore');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeQuickFilter, setActiveQuickFilter] = useState<string | null>(null);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
-  // Trending: highest rated
+  // Trending: highest rated in selected location
   const trendingRestaurants = useMemo(
-    () => [...restaurants].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 6),
-    []
+    () => restaurants
+      .filter(r => r.city === location)
+      .sort((a, b) => b.reviewCount - a.reviewCount)
+      .slice(0, 6),
+    [location]
   );
 
   // Top picks: highest rated
@@ -95,7 +99,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
-      <Navbar />
+      <Navbar selectedLocation={location} setSelectedLocation={setLocation} />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -205,9 +209,9 @@ export default function HomePage() {
       </section>
 
       {/* Quick Filters */}
-      <section className="py-6 border-y border-border/40 bg-background/60 backdrop-blur-xl sticky top-[72px] z-40">
+      <section className="py-6 border-y border-border/40 bg-background/60 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1 mask-gradient-right">
+          <div className="flex flex-wrap justify-center gap-3">
             {quickFilters.map((filter) => {
               const Icon = IconMap[filter.icon as string] || Sparkles;
               const isActive = activeQuickFilter === filter.id;
@@ -299,28 +303,40 @@ export default function HomePage() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <div className="flex items-center gap-2 text-primary font-bold mb-2 uppercase tracking-wider text-sm">
-                <TrendingUp className="w-4 h-4" /> Popular
+                <TrendingUp className="w-4 h-4" /> Popular in {location}
               </div>
               <h2 className="font-heading font-bold text-3xl sm:text-4xl text-foreground">Trending Nearby</h2>
             </div>
-            <Link href="/explore" className="group flex items-center gap-2 font-semibold text-primary hover:text-primary/80 transition-colors">
+            <Link href={`/explore?city=${location}`} className="group flex items-center gap-2 font-semibold text-primary hover:text-primary/80 transition-colors">
               View all <div className="bg-primary/10 rounded-full p-1 group-hover:bg-primary group-hover:text-white transition-all"><ChevronRight className="w-4 h-4" /></div>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trendingRestaurants.map((restaurant, i) => (
-              <RestaurantCard key={restaurant.id} restaurant={restaurant} index={i} />
-            ))}
-          </div>
+          {trendingRestaurants.length > 0 ? (
+            <div className="flex gap-6 overflow-x-auto no-scrollbar pb-8 snap-x snap-mandatory">
+              {trendingRestaurants.map((restaurant, i) => (
+                <div key={restaurant.id} className="min-w-[300px] sm:min-w-[350px] snap-center">
+                  <RestaurantCard restaurant={restaurant} index={i} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20 bg-secondary/20 rounded-3xl border border-secondary">
+              <div className="bg-secondary/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-8 h-8 text-muted-foreground" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">No trending spots yet</h3>
+              <p className="text-muted-foreground">We haven't discovered popular places in {location} yet.</p>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Decide For Me (Interactive) */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[#0d1f0c] overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-          <motion.div style={{ y: y1 }} className="absolute -top-1/2 -left-1/4 w-[1000px] h-[1000px] bg-primary-600/30 rounded-full blur-[120px]" />
+          <motion.div style={{ y: y1 }} className="absolute -top-1/2 -left-1/4 w-[1000px] h-[1000px] bg-primary/20 rounded-full blur-[120px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -335,8 +351,8 @@ export default function HomePage() {
                 <Zap className="w-8 h-8 text-yellow-400 fill-yellow-400" />
               </motion.div>
               <h2 className="font-heading font-bold text-4xl sm:text-5xl mb-6">Can't Decide?</h2>
-              <p className="text-xl text-primary-100 mb-8 max-w-lg">Let our AI-powered curation engine pick the perfect spot for you based on current vibes, timing, and your location.</p>
-              <button className="px-8 py-4 bg-white text-primary-900 rounded-2xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/20 flex items-center gap-3 mx-auto md:mx-0">
+              <p className="text-xl text-white/80 mb-8 max-w-lg">Let our AI-powered curation engine pick the perfect spot for you based on current vibes, timing, and your location.</p>
+              <button className="px-8 py-4 bg-white text-primary rounded-2xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/20 flex items-center gap-3 mx-auto md:mx-0">
                 <Sparkles className="w-5 h-5 text-accent" />
                 Spin the Wheel
               </button>

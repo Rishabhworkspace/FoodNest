@@ -86,18 +86,6 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-
-                <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-muted-foreground">© 2026 FoodNest. All rights reserved.</p>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> by Rishabh
-                    </div>
-                    <div className="flex gap-6 text-xs text-muted-foreground">
-                        <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>
-                        <Link href="#" className="hover:text-primary transition-colors">Terms</Link>
-                        <Link href="#" className="hover:text-primary transition-colors">Sitemap</Link>
-                    </div>
-                </div>
             </div>
         </footer>
     );
