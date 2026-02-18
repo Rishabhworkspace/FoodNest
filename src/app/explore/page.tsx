@@ -70,6 +70,7 @@ function ExploreContent() {
     };
 
     const [activeFilters, setActiveFilters] = useState<FilterState>(getInitialFilters);
+    const [location, setLocation] = useState('Bangalore');
 
     const handleFilterChange = useCallback((category: keyof FilterState, value: string) => {
         setActiveFilters((prev) => ({
@@ -87,6 +88,9 @@ function ExploreContent() {
     // Filter Logic
     const filteredRestaurants = useMemo(() => {
         let result = [...restaurants];
+
+        // Filter by location first
+        result = result.filter(r => r.city === location);
 
         if (searchQuery) {
             const q = searchQuery.toLowerCase();
@@ -119,13 +123,14 @@ function ExploreContent() {
         }
 
         return result;
-    }, [searchQuery, activeFilters, sortBy]);
+    }, [searchQuery, activeFilters, sortBy, location]); // Added location dependency
 
     const totalActive = Object.values(activeFilters).reduce((acc, curr) => acc + curr.length, 0);
 
     return (
         <div className="min-h-screen bg-background">
-            <Navbar />
+            <Navbar selectedLocation={location} setSelectedLocation={setLocation} />
+
 
             <div className="pt-24 pb-12 min-h-screen">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

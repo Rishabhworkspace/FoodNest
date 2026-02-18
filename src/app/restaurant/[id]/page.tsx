@@ -43,6 +43,8 @@ export default function RestaurantDetailPage({
     const [isSaved, setIsSaved] = useState(false);
 
     const restaurant = restaurants.find((r) => r.id === id);
+    // Initialize location to restaurant's city if available, else default
+    const [location, setLocation] = useState(restaurant?.city || 'Bangalore');
 
     if (!restaurant) {
         return (
@@ -99,7 +101,7 @@ export default function RestaurantDetailPage({
 
     return (
         <div className="min-h-screen bg-background">
-            <Navbar />
+            <Navbar selectedLocation={location} setSelectedLocation={setLocation} />
 
             {/* Cinematic Hero */}
             <div className="relative h-[60vh] lg:h-[70vh] w-full overflow-hidden">
